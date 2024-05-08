@@ -14,6 +14,7 @@ const agent = new https.Agent(options);
 const fs = require("fs");
 var path = require("path");
 let lastContinuationId = true;
+let lastContinuation = "";
 let count = 0;
 
 (async function () {
@@ -28,49 +29,53 @@ let count = 0;
 })();
 
 async function createScrappedDataForChannel(payload) {
-  let response = await ytch.getChannelVideos(payload);
+  
+  console.log("Continuation : " + lastContinuation);
+  
+  let response = lastContinuation.length > 0 ? 
+                 await ytch.getChannelVideosMore({continuation: lastContinuation}) : 
+                 await ytch.getChannelVideos(payload) ;
   const arr = [];
 
   for (const item of response?.items) {
-    console.log(item);
 
     let transcript = {};
 
     try {
       transcript = await getSubtitles({
         videoID: item.videoId,
+        lang: "hi",
       });
     } catch (error) {
       transcript = await getSubtitles({
-        videoID: item.videoId,
-        lang: "hi",
+        videoID: item.videoId
       });
     }
 
     let combinedTranscript = "";
-    transcript?.forEach((obj) => {
-      combinedTranscript += obj.text;
-    });
+    if (transcript) {
+      transcript?.forEach((obj) => {
+        combinedTranscript += obj.text;
+      }); 
+    }
 
     let paidPromotionResp = {};
     let isPaidPromotion = false;
 
     try {
-      paidPromotionResp = await fetch(
-        "https://yt.lemnoslife.com/videos?part=isPaidPromotion&id=" +
-          item.videoId,
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          body: "{}",
-        }
-      );
-      isPaidPromotion = paidPromotionResp.items[0].isPaidPromotion
+      let url = "https://yt.lemnoslife.com/videos?part=isPaidPromotion&id=" +
+      item.videoId;
+      console.log('URL :', url);
+      paidPromotionResp = await fetch(url);
+      const data = await paidPromotionResp.json();
+      isPaidPromotion = data.items[0].isPaidPromotion
+      console.log('Promotional Video :', isPaidPromotion);
     } catch (error) {
-      console.log(error);
+      console.log('yt.lemnoslife.com :', error);
     }
 
     let obj = {
+      videoId: item.videoId,
       title: item.title,
       views: item.viewCount,
       length: item.lengthSeconds,
@@ -80,19 +85,17 @@ async function createScrappedDataForChannel(payload) {
       isPaidPromotion: isPaidPromotion
     };
 
-    //console.log(obj);
-
     arr.push(obj);
   }
 
   if (!response.continuation) {
     return;
-  } else {
+  } else if (lastContinuation !== response.continuation) {
+    lastContinuation = response.continuation;
     await createDirAndStoreData(arr,count);
-    payload["continuation"] = response.continuation;
   }
   count++;
-  return createScrappedDataForChannel(payload);
+  return createScrappedDataForChannel(lastContinuation);
 }
 
 async function createDirAndStoreData(video_data, count) {
