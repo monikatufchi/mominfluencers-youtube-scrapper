@@ -1,0 +1,83 @@
+{
+    "kind": "youtube#channelListResponse",
+    "etag": "ql01kj3OC_iXstKpVpcJzpfZYE0",
+    "pageInfo": {
+      "totalResults": 1,
+      "resultsPerPage": 5
+    },
+    "items": [
+      {
+        "kind": "youtube#channel",
+        "etag": "Y2ObK5AYIsRzWk_9kQ_mHuw4PEE",
+        "id": "UCTVO-4rIuzg_rCQP37jjSTA",
+        "snippet": {
+          "title": "Mom Com India",
+          "description": "Parenting, Motherhood, Child Care, Vlogs\nThis channel is created for people who are stepping into the beautiful world of parenthood, or are preparing to embark on this journey. Mom Com is mainly targeted for Indian mothers as it captures experiences of an Indian mother in this beautiful journey of parenthood.",
+          "customUrl": "@momcomindia",
+          "publishedAt": "2017-01-09T21:29:01Z",
+          "thumbnails": {
+            "default": {
+              "url": "https://yt3.ggpht.com/ytc/AIdro_ntkK-YSBa5lu-UnxUeOT6ygczZr6zXprIIVnsGL6-oTHo=s88-c-k-c0x00ffffff-no-rj",
+              "width": 88,
+              "height": 88
+            },
+            "medium": {
+              "url": "https://yt3.ggpht.com/ytc/AIdro_ntkK-YSBa5lu-UnxUeOT6ygczZr6zXprIIVnsGL6-oTHo=s240-c-k-c0x00ffffff-no-rj",
+              "width": 240,
+              "height": 240
+            },
+            "high": {
+              "url": "https://yt3.ggpht.com/ytc/AIdro_ntkK-YSBa5lu-UnxUeOT6ygczZr6zXprIIVnsGL6-oTHo=s800-c-k-c0x00ffffff-no-rj",
+              "width": 800,
+              "height": 800
+            }
+          },
+          "localized": {
+            "title": "Mom Com India",
+            "description": "Parenting, Motherhood, Child Care, Vlogs\nThis channel is created for people who are stepping into the beautiful world of parenthood, or are preparing to embark on this journey. Mom Com is mainly targeted for Indian mothers as it captures experiences of an Indian mother in this beautiful journey of parenthood."
+          },
+          "country": "IN"
+        },
+        "contentDetails": {
+          "relatedPlaylists": {
+            "likes": "",
+            "uploads": "UUTVO-4rIuzg_rCQP37jjSTA"
+          }
+        },
+        "statistics": {
+          "viewCount": "456431698",
+          "subscriberCount": "3200000",
+          "hiddenSubscriberCount": false,
+          "videoCount": "1687"
+        },
+        "topicDetails": {
+          "topicIds": [
+            "/m/019_rr"
+          ],
+          "topicCategories": [
+            "https://en.wikipedia.org/wiki/Lifestyle_(sociology)"
+          ]
+        },
+        "status": {
+          "privacyStatus": "public",
+          "isLinked": true,
+          "longUploadsStatus": "longUploadsUnspecified",
+          "madeForKids": false
+        },
+        "brandingSettings": {
+          "channel": {
+            "title": "Mom Com India",
+            "description": "Parenting, Motherhood, Child Care, Vlogs\nThis channel is created for people who are stepping into the beautiful world of parenthood, or are preparing to embark on this journey. Mom Com is mainly targeted for Indian mothers as it captures experiences of an Indian mother in this beautiful journey of parenthood.",
+            "keywords": "MomCom India \"mom com india\" \"mom com india\" \"momcom channel\" \"momcom vlogs\" \"momcom india latest video\" \"parenting channel\" \"baby care\" \"parenting guidance\" \"best channel on parenting\"",
+            "unsubscribedTrailer": "k8tqCn6um-M",
+            "country": "IN"
+          },
+          "image": {
+            "bannerExternalUrl": "https://yt3.googleusercontent.com/bOa9RBmkgo64jtoIqNekeWWVXaoN_2w_Fueu7Aggsy3yh-TlRaspuPEnfzOvNeWYb0Pf7k8U"
+          }
+        },
+        "contentOwnerDetails": {}
+      }
+    ]
+  }
+  
